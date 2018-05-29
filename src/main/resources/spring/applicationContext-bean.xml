@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -7,14 +8,34 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <context:component-scan base-package="com.sjb"/>
+    <!--
+        <context:component-scan base-package="com.sjb"/>
+    -->
 
     <!-- chapter1 -->
-    <bean id="knight" class="com.sjb.chapter1.di.knight.BraveKnight">
+    <bean id="knight" class="com.sjb.chapter1.di.BraveKnight">
         <constructor-arg ref="quest"/>
     </bean>
 
     <bean id="quest" class="com.sjb.chapter1.di.SlayDragonQuest">
         <constructor-arg value="#{T(System).out"/>
     </bean>
+
+    <!-- chapter2 -->
+    <context:component-scan base-package="com.sjb.chapter2.soundsystem"/>
+
+    <!--    &lt;!&ndash; 빈 레퍼런스를 사용한 생성자 주입 &ndash;&gt;
+        <bean id="compactDisc" class="com.sjb.chapter2.soundsystem.SgtPeppers"/>
+        <bean id="cdPlayer" class="com.sjb.chapter2.soundsystem.CDPlayer">
+            <constructor-arg ref="compactDisc"/>
+        </bean>
+
+        &lt;!&ndash; c-네임스페이스 사용 &ndash;&gt;
+        <bean id="cdPlayer2" class="com.sjb.chapter2.soundsystem.CDPlayer"
+              c:_0-ref="compactDisc"/>
+    <bean id="compactDisc" class="com.sjb.chapter2.soundsystem.BlankDisc">
+        <constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band"/>
+        <constructor-arg value="The Beatles"/>
+    </bean>
+    -->
 </beans>

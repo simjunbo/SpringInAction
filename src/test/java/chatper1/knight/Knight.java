@@ -1,6 +1,6 @@
 package chatper1.knight;
 
-import com.sjb.chapter1.di.knight.BraveKnight;
+import com.sjb.chapter1.di.BraveKnight;
 import com.sjb.chapter1.di.Quest;
 import org.junit.Test;
 

@@ -159,6 +159,22 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.stefanbirkner/system-rules -->
+        <dependency>
+            <groupId>com.github.stefanbirkner</groupId>
+            <artifactId>system-rules</artifactId>
+            <version>1.18.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <repositories>

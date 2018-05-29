@@ -1,4 +1,4 @@
-package com.sjb.container;
+package com.sjb.chapter1.container;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
