@@ -14,6 +14,10 @@
         <param-name>defaultHtmlEscape</param-name>
         <param-value>true</param-value>
     </context-param>
+    <context-param>
+        <param-name>spring.profiles.default</param-name>
+        <param-value>dev</param-value>
+    </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -23,6 +27,10 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:mvc-config.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>spring.profiles.default</param-name>
+            <param-value>dev</param-value>
         </init-param>
         <multipart-config>
             <max-file-size>52428800</max-file-size>

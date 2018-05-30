@@ -1,6 +1,6 @@
-package chapter2.soundsystem;
+package chapter3.autowired;
 
-import com.sjb.chapter2.soundsystem.BlankDisc;
+import com.sjb.chapter3.autowired.AutowiredExample;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +10,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by simjunbo on 2018-05-29.
+ * Created by simjunbo on 2018-05-30.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(value = {"classpath:spring-test/chapter2/blank.xml"})
-public class BlankDiscTest {
+@ContextConfiguration(value = {"classpath:spring-test/chapter3/autowired.xml"})
+public class AutowiredExampleTest {
+
     @Autowired
-    private BlankDisc bd;
+    private AutowiredExample ae;
 
     @Test
     public void cdShouldNotBeNull() {
-        assertNotNull(bd);
+        assertNotNull(ae);
     }
 }
