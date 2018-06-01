@@ -6,6 +6,5 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-
     <bean id="notepad" class="com.sjb.chapter3.scope.Notepad" scope="prototype" />
 </beans>
