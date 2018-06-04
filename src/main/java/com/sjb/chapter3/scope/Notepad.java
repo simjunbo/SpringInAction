@@ -16,5 +16,4 @@ public class Notepad {
     public Notepad notepad() {
         return new Notepad();
     }
-
 }
