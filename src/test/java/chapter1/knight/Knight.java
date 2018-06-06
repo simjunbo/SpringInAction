@@ -1,4 +1,4 @@
-package chatper1.knight;
+package chapter1.knight;
 
 import com.sjb.chapter1.di.BraveKnight;
 import com.sjb.chapter1.di.Quest;
