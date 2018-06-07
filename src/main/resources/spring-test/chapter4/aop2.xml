@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="audience" class="com.sjb.chapter4.aop.xml2.Audience"/>
+    <context:component-scan base-package="com.sjb.chapter4.aop.xml2"/>
+
+    <!-- chapter4 -->
+    <aop:config> <!-- 최상위 개념 -->
+        <aop:aspect ref="audience"> <!-- 애스펙트 정의 -->
+            <aop:pointcut id="performance"
+                          expression="execution(* com.sjb.chapter4.aop.xml2.Performance.perform(..))"/>
+            <!--
+            <aop:before
+                    pointcut-ref="performance"
+                    method="silenceCellPhones"/>
+            <aop:before
+                    pointcut-ref="performance"
+                    method="takeSeats"/>
+            <aop:after-returning
+                    pointcut-ref="performance"
+                    method="applause"/>
+            <aop:after-throwing
+                    pointcut-ref="performance"
+                    method="demandRefund"/>-->
+
+            <aop:around pointcut-ref="performance" method="watchPerformance"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

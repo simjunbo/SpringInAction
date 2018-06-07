@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="trackCounter" class="com.sjb.chapter4.aop.parameter.xml.TrackCounter"/>
+    <bean id="cd" class="com.sjb.chapter4.aop.parameter.xml.BlankDisc">
+        <property name="title" value="Sgt. Pepper's Lonely Hearts Club Band"/>
+        <property name="artist" value="The Beatles"/>
+        <property name="tracks">
+            <list>
+                <value>Sgt. Pepper's Lonely Hearts Club Band</value>
+                <value>With a Little Help from My Friends</value>
+                <value>Lucy in the Sky with Diamonds</value>
+                <value>Getting Better</value>
+                <value>Fixing a Hole</value>
+                <value>Fixing a Hole2</value>
+                <value>Fixing a Hole3</value>
+                <value>Fixing a Hole4</value>
+            </list>
+        </property>
+    </bean>
+
+    <aop:config>
+        <aop:aspect ref="trackCounter">
+            <aop:pointcut id="trackPlayed" expression=
+                    "execution(* com.sjb.chapter4.aop.parameter.xml.CompactDisc.playTrack(int)) and args(trackNumber)"/>
+            <aop:before pointcut-ref="trackPlayed" method="countTrack"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
