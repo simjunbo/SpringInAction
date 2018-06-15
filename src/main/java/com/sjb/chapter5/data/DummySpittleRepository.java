@@ -13,6 +13,11 @@ import java.util.List;
 public class DummySpittleRepository implements SpittleRepository {
 
     @Override
+    public Spittle findOne(long spittleId) {
+        return new Spittle("Hello", new Date());
+    }
+
+    @Override
     public List<Spittle> findSpittles(long max, int count) {
         List<Spittle> spittles = new ArrayList<Spittle>();
         for (int i = 1; i <= count; i++) {
