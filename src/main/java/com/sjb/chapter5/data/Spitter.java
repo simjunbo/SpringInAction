@@ -10,20 +10,20 @@ public class Spitter {
 
     private Long id;
 
-    @NotNull
-    @Size(min = 5, max = 16)
+    @NotNull(message = "userName cannot be null")
+    @Size(min = 5, max = 16, message = "Username must be between 5 and 16 characters long")
     private String userName;
 
-    @NotNull
-    @Size(min = 5, max = 25)
+    @NotNull(message = "password cannot be null")
+    @Size(min = 5, max = 25, message = "Username must be between 5 and 25 characters long")
     private String password;
 
-    @NotNull
-    @Size(min = 2, max = 30)
+    @NotNull(message = "firstName cannot be null")
+    @Size(min = 2, max = 30, message = "Username must be between 2 and 30 characters long")
     private String firstName;
 
-    @NotNull
-    @Size(min = 2, max = 30)
+    @NotNull(message = "lastName cannot be null")
+    @Size(min = 2, max = 30, message = "Username must be between 2 and 30 characters long")
     private String lastName;
 
     public Spitter() {

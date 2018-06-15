@@ -34,7 +34,7 @@ public class SpittlerControllerTest {
         mockMvc.perform(post("/spitter/register")
                 .param("firstName", "Jack")
                 .param("lastName", "Bauer")
-                .param("username", "jbauer")
+                .param("userName", "jbauer")
                 .param("password", "24hours"))
                 .andExpect(redirectedUrl("/spitter/jbauer"));
 
