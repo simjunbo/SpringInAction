@@ -1,4 +1,4 @@
-package com.sjb.chapter7.config;
+package com.sjb.chapter7.servlet;
 
 import javax.servlet.*;
 import java.io.IOException;

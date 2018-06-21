@@ -1,8 +1,8 @@
-package com.sjb.chapter7.config;
+package com.sjb.chapter7.servlet;
 
 import org.springframework.web.WebApplicationInitializer;
 
-import javax.servlet.FilterRegistration;
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -12,17 +12,11 @@ import javax.servlet.ServletRegistration;
  */
 public class MyServletInitializer implements WebApplicationInitializer {
     // 서블릿 등록
-/*    @Override
+    @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         ServletRegistration.Dynamic myServlet = servletContext.addServlet("myServlet", MyServlet.class);
         myServlet.addMapping("/custom/**");
-    }
-*/
-
-    // 필터 등록
-    @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
-        FilterRegistration.Dynamic filter = servletContext.addFilter("myFilter", MyFilter.class);
-        filter.addMappingForUrlPatterns(null, false, "/custom*//*");
+        myServlet.setMultipartConfig(
+                new MultipartConfigElement("/tmp/spitter/uploads"));
     }
 }

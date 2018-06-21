@@ -1,4 +1,4 @@
-package com.sjb.chapter6.web;
+package com.sjb.chapter7.web;
 
 import com.sjb.chapter6.data.Spitter;
 import com.sjb.chapter6.data.SpitterRepository;
@@ -9,8 +9,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.RequestPart;
 
+import javax.servlet.http.Part;
 import javax.validation.Valid;
 
 /**
@@ -35,9 +36,9 @@ public class SpitterController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String processRegistration(
+            @RequestPart("profilePicture") Part profilePicture,
             @Valid Spitter spitter,
-            BindingResult errors,
-            Model model) {
+            BindingResult errors) {
 
         if (errors.hasErrors()) {
             return "springForm";
@@ -55,25 +56,5 @@ public class SpitterController {
         model.addAttribute(spitter);
         return "profile";
 
-    }
-
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String processRegistrationByRedirect(
-            Spitter spitter,
-            RedirectAttributes model) {
-
-        model.addAttribute("username", spitter.getUsername());
-        model.addFlashAttribute("spitter", spitter);
-        return "redirect:/spitter/{username}";
-    }
-
-    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
-    public String showSpitterProfileByRedirect(
-            @PathVariable String username, Model model) {
-        if (!model.containsAttribute("spitter")) {
-            model.addAttribute(
-                    spitterRepository.findByUsername(username));
-        }
-        return "profile";
     }
 }
