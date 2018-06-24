@@ -10,7 +10,7 @@ import javax.servlet.ServletRegistration;
 /**
  * Created by simjunbo on 2018-06-14.
  */
-public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+/*public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     // DispatcherServlet이 매핑되기 위한 하나 혹은 여러개의 패스를 지정한다.
     @Override
@@ -32,11 +32,11 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         // 생성자 하나 방식
-/*
+*//*
         registration.setMultipartConfig(
                 new MultipartConfigElement("/tmp/spitter/uploads")
         );
-*/
+*//*
 
         // 여러개 생성자 방식
         registration.setMultipartConfig(
@@ -50,4 +50,4 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
                 new MyFilter()
         };
     }
-}
+}*/
