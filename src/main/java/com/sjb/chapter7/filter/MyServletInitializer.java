@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 /**
  * Created by simjunbo on 2018-06-21.
  */
+/*
 public class MyServletInitializer implements WebApplicationInitializer {
     // 필터 등록
     @Override
@@ -17,3 +18,4 @@ public class MyServletInitializer implements WebApplicationInitializer {
         filter.addMappingForUrlPatterns(null, false, "/custom*//*");
     }
 }
+*/

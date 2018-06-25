@@ -6,7 +6,7 @@ import java.io.IOException;
 /**
  * Created by simjunbo on 2018-06-21.
  */
-public class MyServlet implements Servlet {
+/*public class MyServlet implements Servlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
 
@@ -31,4 +31,4 @@ public class MyServlet implements Servlet {
     public void destroy() {
 
     }
-}
+}*/

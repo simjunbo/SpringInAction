@@ -6,7 +6,7 @@ import java.io.IOException;
 /**
  * Created by simjunbo on 2018-06-21.
  */
-public class MyFilter implements Filter {
+/*public class MyFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -21,4 +21,4 @@ public class MyFilter implements Filter {
     public void destroy() {
 
     }
-}
+}*/

@@ -1,4 +1,4 @@
-package com.sjb.chapter7.config;
+package com.sjb.chapter9.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.sjb.chapter7.web")
+@ComponentScan("com.sjb.chapter9.web")
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
