@@ -1,4 +1,4 @@
-package com.sjb.chapter9.config;
+package com.sjb.chapter9.service;
 
 import com.sjb.chapter6.data.Spitter;
 import com.sjb.chapter6.data.SpitterRepository;

@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.InMemoryTokenRepositoryImpl;
 
 import javax.sql.DataSource;
 
@@ -27,12 +28,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .formLogin()
+                .loginPage("/login")
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .and()
+                .rememberMe()
+                .tokenRepository(new InMemoryTokenRepositoryImpl())
+                .tokenValiditySeconds(2419200)
+                .key("spittrKey")
+                .and()
+                .httpBasic()
+                .realmName("Spittr")
+                .and()
                 .authorizeRequests()
-                .antMatchers("/apitters/me").authenticated()
-                .antMatchers(HttpMethod.POST, "/Spittles").authenticated()
+                .antMatchers("/").authenticated()
+                .antMatchers("/spitter/me").authenticated()
+                .antMatchers(HttpMethod.POST, "/spittles").authenticated()
                 .anyRequest().permitAll();
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER");
+    }
     //@Autowired
     //DataSource dataSource;
 

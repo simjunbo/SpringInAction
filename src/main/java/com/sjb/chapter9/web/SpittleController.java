@@ -1,6 +1,6 @@
 package com.sjb.chapter9.web;
 
-import com.sjb.chapter9.data.Spittle;
+import com.sjb.chapter9.Spittle;
 import com.sjb.chapter9.data.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,21 +49,34 @@ public class SpittleController {
     }
 
     /**
-     * 쿼리 파라미터 방식 (RequestParam 이용)
+     * 패스 방식 (PathVariable 이용)
      */
-    @RequestMapping(value = "/show", method = RequestMethod.GET)
-    public String showSpittle(
+    @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
+    public String spittle(
+            @PathVariable long spittleId, Model model) {
+        model.addAttribute(spittleRepository.findOne(spittleId));
+        return "spittle";
+    }
+
+    @RequestMapping(method=RequestMethod.POST)
+    public String saveSpittle(SpittleForm form, Model model) throws Exception {
+
+        return "redirect:/spittles";
+    }
+
+    @RequestMapping(value = "/spitters/me", method = RequestMethod.GET)
+    public String spitters(
             @RequestParam("spittle_id") long spittleId, Model model) {
         model.addAttribute(spittleRepository.findOne(spittleId));
         return "spittle";
     }
 
     /**
-     * 패스 방식 (PathVariable 이용)
+     * 쿼리 파라미터 방식 (RequestParam 이용)
      */
-    @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
-    public String spittle(
-            @PathVariable long spittleId, Model model) {
+    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    public String showSpittle(
+            @RequestParam("spittle_id") long spittleId, Model model) {
         model.addAttribute(spittleRepository.findOne(spittleId));
         return "spittle";
     }

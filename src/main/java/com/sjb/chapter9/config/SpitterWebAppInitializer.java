@@ -1,5 +1,6 @@
 package com.sjb.chapter9.config;
 
+import com.sjb.chapter9.web.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**

@@ -1,4 +1,4 @@
-package com.sjb.chapter9.data;
+package com.sjb.chapter9;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
