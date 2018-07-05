@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by simjunbo on 2018-07-05.
  */
-@Repository
+/*@Repository
 @Transactional
 public class JpaSpitterRepository implements SpitterRepository {
 
@@ -56,4 +56,4 @@ public class JpaSpitterRepository implements SpitterRepository {
     public List<Spitter> findAll() {
         return null;
     }
-}
+}*/

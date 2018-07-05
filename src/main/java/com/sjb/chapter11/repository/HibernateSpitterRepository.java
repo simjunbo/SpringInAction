@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by simjunbo on 2018-07-05.
  */
-@Repository
+/*@Repository
 public class HibernateSpitterRepository implements SpitterRepository {
     private SessionFactory sessionFactory;
 
@@ -60,4 +60,4 @@ public class HibernateSpitterRepository implements SpitterRepository {
         return (List<Spitter>) currentSession()
                 .createCriteria(Spitter.class).list();
     }
-}
+}*/
