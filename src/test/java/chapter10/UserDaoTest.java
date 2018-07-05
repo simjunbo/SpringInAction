@@ -1,5 +1,6 @@
 package chapter10;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -14,7 +15,7 @@ public class UserDaoTest {
     private EmbeddedDatabase db;
 
 
-    @Before
+    //@Before
     public void setUp() {
         db = new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
@@ -23,7 +24,7 @@ public class UserDaoTest {
                 .build();
     }
 
-    @Test
+    //@Test
     public void testFindByname() {
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(db);
 
