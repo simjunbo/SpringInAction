@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xsi:schemaLocation="
+       http://www.springframework.org/schema/data/mongo
+       http://www.springframework.org/shcema/data/mongo/spring-mongo.xsd
        http://www.springframework.org/schema/jdbc
        http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
        http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <mongo:repositories base-package="com.sjb.chapter12" />
+    <mongo:mongo />
+    <bean id="mongoTemplate"
+          class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg ref="mongo" />
+        <constructor-arg value="OrdersDB" />
+    </bean>
 <!--
     &lt;!&ndash; DBCP &ndash;&gt;
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
