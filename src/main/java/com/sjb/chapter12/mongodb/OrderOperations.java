@@ -1,4 +1,4 @@
-package com.sjb.chapter12.db;
+package com.sjb.chapter12.mongodb;
 
 import com.sjb.chapter12.model.Order;
 
