@@ -1,4 +1,4 @@
-package com.sjb.chapter12.model;
+package com.sjb.chapter12.mongo.model;
 
 /**
  * Created by simjunbo on 2018-07-11.

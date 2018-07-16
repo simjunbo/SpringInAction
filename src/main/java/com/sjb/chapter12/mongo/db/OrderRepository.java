@@ -1,6 +1,6 @@
-package com.sjb.chapter12.mongodb;
+package com.sjb.chapter12.mongo.db;
 
-import com.sjb.chapter12.model.Order;
+import com.sjb.chapter12.mongo.model.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

@@ -1,4 +1,4 @@
-package com.sjb.chapter12.model;
+package com.sjb.chapter12.mongo.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
