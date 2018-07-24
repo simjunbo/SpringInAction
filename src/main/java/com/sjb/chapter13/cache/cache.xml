@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <aop:config>
+        <aop:advisor advice-ref="cacheAdvice"
+                     pointcut="execution(* com.sjb.chapter13.repository.SpittleRepository.*(..))"/>
+    </aop:config>
+    <cache:advice id="cacheAdvice">
+        <cache:caching>
+            <cache:cacheable cache="spittleCache" method="findRecent"/>
+            <cache:cacheable cache="spittleCache" method="findOne"/>
+            <cache:cacheable cache="spittleCache" method="findBySpitterId"/>
+            <cache:cache-put cache="spittleCache" method="save" key="#result.id"/>
+            <cache:cache-evict cache="spittleCache" method="remove"/>
+        </cache:caching>
+    </cache:advice>
+    <bean id="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager"/>
+</beans>
