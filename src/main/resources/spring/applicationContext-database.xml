@@ -11,13 +11,13 @@
        http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <mongo:repositories base-package="com.sjb.chapter12" />
+<!--    <mongo:repositories base-package="com.sjb.chapter12" />
     <mongo:mongo />
     <bean id="mongoTemplate"
           class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg ref="mongo" />
         <constructor-arg value="OrdersDB" />
-    </bean>
+    </bean>-->
 <!--
     &lt;!&ndash; DBCP &ndash;&gt;
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

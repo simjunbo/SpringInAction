@@ -334,6 +334,13 @@
             <artifactId>spring-data-neo4j</artifactId>
             <version>3.1.2.RELEASE</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.neo4j/neo4j-cypher-dsl -->
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-cypher-dsl</artifactId>
+            <version>1.7</version>
+        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
         <dependency>

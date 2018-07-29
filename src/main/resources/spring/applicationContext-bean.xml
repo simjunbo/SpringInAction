@@ -15,17 +15,19 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <context:component-scan base-package="com.sjb.api"/>
+    <context:component-scan base-package="com.sjb.chapter16"/>
 
+<!--
 
-    <!-- JPA -->
+    &lt;!&ndash; JPA &ndash;&gt;
     <jpa:repositories base-package="com.sjb.chapter11" />
 
-    <!-- Cache 활성화 -->
+    &lt;!&ndash; Cache 활성화 &ndash;&gt;
     <cache:annotation-driven />
-    <!-- Cache 매니저 선언 -->
+    &lt;!&ndash; Cache 매니저 선언 &ndash;&gt;
     <bean id ="cacheManager" class="org.springframework.cache.concurrent.ConcurrentMapCacheManager" />
 
+-->
 
     <!-- chapter1 -->
     <!--    <bean id="knight" class="com.sjb.chapter1.di.BraveKnight">
