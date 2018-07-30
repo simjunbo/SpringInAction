@@ -1,8 +1,8 @@
 package com.sjb.chapter16.data;
 
 import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,16 +13,20 @@ public class DummySpittleRepository implements SpittleRepository {
 
     @Override
     public Spittle findOne(long spittleId) {
-        return new Spittle("Hello", new Date());
+        return new Spittle(1L, "Hello");
     }
 
     @Override
     public List<Spittle> findSpittles(long max, int count) {
         List<Spittle> spittles = new ArrayList<Spittle>();
         for (int i = 1; i <= count; i++) {
-            spittles.add(new Spittle("Spittle " + i, new Date(), 0.0, 0.0));
+            spittles.add(new Spittle(Long.valueOf(i), "Spittle " + i, 0.0, 0.0));
         }
         return spittles;
     }
 
+    @Override
+    public Spittle save(Spittle spittle) {
+        return spittle;
+    }
 }

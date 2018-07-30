@@ -9,20 +9,21 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * Created by simjunbo on 2018-06-14.
  */
 public class Spittle {
-    private final Long id;
-    private final String message;
-    private final Date time;
+    private Long id;
+    private String message;
     private Double latitude;
     private Double longitude;
 
-    public Spittle(String message, Date time) {
-        this(message, time, null, null);
+    public Spittle() {
     }
 
-    public Spittle(String message, Date time, Double longitude, Double latitude) {
-        this.id = null;
+    public Spittle(Long id, String message) {
+        this(id, message, null, null);
+    }
+
+    public Spittle(Long id, String message, Double longitude, Double latitude) {
+        this.id = id;
         this.message = message;
-        this.time = time;
         this.longitude = longitude;
         this.latitude = latitude;
     }
@@ -33,10 +34,6 @@ public class Spittle {
 
     public String getMessage() {
         return message;
-    }
-
-    public Date getTime() {
-        return time;
     }
 
     public Double getLongitude() {
