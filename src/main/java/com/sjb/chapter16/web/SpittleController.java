@@ -2,12 +2,16 @@ package com.sjb.chapter16.web;
 
 import com.sjb.chapter16.data.Spittle;
 import com.sjb.chapter16.data.SpittleRepository;
+import com.sjb.chapter16.exception.SpittleNotFoundException;
+import com.sjb.chapter16.model.Error;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -22,33 +26,55 @@ public class SpittleController {
     @Autowired
     private SpittleRepository spittleRepository;
 
+    // ResponseBody 사용 (RestController 사용 시, 제외할 수 있음)
     @RequestMapping(method = RequestMethod.GET)
-    public List<Spittle> spittles(
+    public
+    @ResponseBody
+    List<Spittle> spittles(
             @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) long max,
             @RequestParam(value = "count", defaultValue = "20") int count) {
         return spittleRepository.findSpittles(max, count);
     }
 
-    // ResponseBody 사용
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public List<Spittle> spittles2(
-            @RequestParam(value = "max", defaultValue = MAX_LONG_AS_STRING) long max,
-            @RequestParam(value = "count", defaultValue = "20") int count) {
-        return spittleRepository.findSpittles(max, count);
-    }
-
-    @RequestMapping(value = "/test2", method = RequestMethod.POST, consumes = "application/json")
+    // ResponseStatus 사용
+    @RequestMapping(value = "/test", method = RequestMethod.POST, consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public Spittle saveSpittle(@RequestBody Spittle spittle) {
         return spittleRepository.save(spittle);
     }
 
+    // ResponseEntity 사용하여 응답 내 헤더 설정
+    @RequestMapping(value = "/test2", method = RequestMethod.POST, consumes = "application/json")
+    public ResponseEntity<Spittle> saveSpittl2(@RequestBody Spittle spittle, UriComponentsBuilder ucb) {
+        Spittle result = spittleRepository.save(spittle);
+
+        HttpHeaders headers = new HttpHeaders();
+        URI locationUri =
+                ucb.path("/spittles/")
+                .path(String.valueOf(spittle.getId()))
+                .build()
+                .toUri();
+        headers.setLocation(locationUri);
+
+        ResponseEntity<Spittle> responseEntity =
+                new ResponseEntity<Spittle>(
+                        result, headers, HttpStatus.CREATED);
+        return responseEntity;
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> spittleById(@PathVariable long id) {
+    public Spittle spittleById(@PathVariable long id) {
         Spittle spittle = spittleRepository.findOne(id);
         if (spittle == null) {
-            com.sjb.chapter16.model.Error error = new com.sjb.chapter16.model.Error(4, "not found");
-            return new ResponseEntity<com.sjb.chapter16.model.Error> (error, HttpStatus.NOT_FOUND);
+            throw new SpittleNotFoundException(id);
         }
-        return new ResponseEntity<Spittle>(spittle, HttpStatus.OK);
+        return spittle;
+    }
+
+    @ExceptionHandler(SpittleNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Error spittleNotFound(SpittleNotFoundException e) {
+        long spittledId = e.getSpittleId();
+        return new Error(4, "Spittle [" + spittledId + "] not found");
     }
 }
