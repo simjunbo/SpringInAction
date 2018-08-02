@@ -7,4 +7,5 @@ import com.sjb.chapter17.data.Spittle;
  */
 public interface AlertService {
     void sendSpittleAlert(Spittle spittle);
+    Spittle receiveSpittleAlert();
 }
