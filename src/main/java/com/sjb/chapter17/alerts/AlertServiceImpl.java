@@ -1,9 +1,12 @@
 package com.sjb.chapter17.alerts;
 
-import com.sjb.chapter17.data.Spittle;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sjb.chapter17.domain.Spittle;
 import org.springframework.jms.core.JmsOperations;
+import org.springframework.jms.support.JmsUtils;
 import org.springframework.stereotype.Service;
+
+import javax.jms.JMSException;
+import javax.jms.ObjectMessage;
 
 /**
  * Created by simjunbo on 2018-08-03.
@@ -12,7 +15,6 @@ import org.springframework.stereotype.Service;
 public class AlertServiceImpl implements AlertService {
     private JmsOperations jmsOperations;
 
-    @Autowired
     public AlertServiceImpl(JmsOperations jmsOperations) {
         this.jmsOperations = jmsOperations;
     }
@@ -34,19 +36,19 @@ public class AlertServiceImpl implements AlertService {
         jmsOperations.convertAndSend(spittle);
     }
 
-    /*
-        public Spittle receiveSpittleAlert() {
-            try {
-                ObjectMessage receivedMessage =
-                        (ObjectMessage) jmsOperations.receive();    // 메시지 수신
-                return (Spittle) receivedMessage.getObject();       // 객체 얻기
-            } catch (JMSException jmsExcetion) {
-                throw JmsUtils.convertJmsAccessException(jmsExcetion); // 변환된 예외 던지기 (비검사형 예외)
-            }
+
+    public Spittle receiveSpittleAlert() {
+        try {
+            ObjectMessage receivedMessage =
+                    (ObjectMessage) jmsOperations.receive();    // 메시지 수신
+            return (Spittle) receivedMessage.getObject();       // 객체 얻기
+        } catch (JMSException jmsExcetion) {
+            throw JmsUtils.convertJmsAccessException(jmsExcetion); // 변환된 예외 던지기 (비검사형 예외)
         }
-    */
-    @Override
+    }
+
+/*    @Override
     public Spittle receiveSpittleAlert() {
         return (Spittle) jmsOperations.receiveAndConvert();
-    }
+    }*/
 }
