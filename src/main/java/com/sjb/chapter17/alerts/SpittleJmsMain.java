@@ -15,6 +15,5 @@ public class SpittleJmsMain {
 
         Spittle spittle = new Spittle(1L, null, "Hello", new Date());
         alertService.sendSpittleAlert(spittle);
-        Spittle result = alertService.receiveSpittleAlert();
     }
 }

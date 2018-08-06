@@ -15,6 +15,8 @@ public class JMSMain {
         for (int i = 0; i < 10; i++) {
             jms.convertAndSend("hello.queue", "Hello");
         }
+        String receive = (String) jms.receiveAndConvert("hello.queue");
+        System.out.println(receive);
         context.close();
     }
 
