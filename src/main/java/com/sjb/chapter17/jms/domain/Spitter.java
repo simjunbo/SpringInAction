@@ -1,4 +1,4 @@
-package com.sjb.chapter17.domain;
+package com.sjb.chapter17.jms.domain;
 
 /**
  * Created by simjunbo on 2018-08-03.

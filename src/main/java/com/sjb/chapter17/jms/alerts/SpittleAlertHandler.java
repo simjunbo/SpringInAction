@@ -1,6 +1,6 @@
-package com.sjb.chapter17.alerts;
+package com.sjb.chapter17.jms.alerts;
 
-import com.sjb.chapter17.domain.Spittle;
+import com.sjb.chapter17.jms.domain.Spittle;
 
 /**
  * Created by simjunbo on 2018-08-03.

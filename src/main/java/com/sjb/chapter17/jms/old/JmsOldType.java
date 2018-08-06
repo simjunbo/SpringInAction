@@ -1,4 +1,4 @@
-package com.sjb.chapter17.old;
+package com.sjb.chapter17.jms.old;
 
 
 import org.apache.activemq.ActiveMQConnectionFactory;

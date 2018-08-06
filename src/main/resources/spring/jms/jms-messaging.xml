@@ -48,7 +48,7 @@
           c:_0-ref="connectionFactory"
           p:defaultDestinationName="spittle.alert.queue"/>
 
-    <bean id="alertService" class="com.sjb.chapter17.alerts.AlertServiceImpl"
+    <bean id="alertService" class="com.sjb.chapter17.jms.alerts.AlertServiceImpl"
           c:_0-ref="jmsTemplate"/>
 
     <jms:listener-container>
@@ -57,6 +57,6 @@
                       method="handleSpittleAlert"/>
     </jms:listener-container>
 
-    <bean id="spittleHandler" class="com.sjb.chapter17.alerts.SpittleAlertHandler"/>
+    <bean id="spittleHandler" class="com.sjb.chapter17.jms.alerts.SpittleAlertHandler"/>
 
 </beans>

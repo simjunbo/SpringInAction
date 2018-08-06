@@ -1,7 +1,4 @@
-package com.sjb.chapter17.domain;
-
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
+package com.sjb.chapter17.jms.domain;
 
 import java.io.Serializable;
 import java.util.Date;

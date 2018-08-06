@@ -1,12 +1,8 @@
-package com.sjb.chapter17.alerts;
+package com.sjb.chapter17.jms.alerts;
 
-import com.sjb.chapter17.domain.Spittle;
+import com.sjb.chapter17.jms.domain.Spittle;
 import org.springframework.jms.core.JmsOperations;
-import org.springframework.jms.support.JmsUtils;
 import org.springframework.stereotype.Service;
-
-import javax.jms.JMSException;
-import javax.jms.ObjectMessage;
 
 /**
  * Created by simjunbo on 2018-08-03.

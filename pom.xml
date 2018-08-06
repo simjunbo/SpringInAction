@@ -388,6 +388,18 @@
             <artifactId>javax.ejb-api</artifactId>
             <version>3.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-amqp</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>
