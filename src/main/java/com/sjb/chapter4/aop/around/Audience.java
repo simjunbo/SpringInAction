@@ -8,7 +8,6 @@ import org.aspectj.lang.annotation.*;
  */
 @Aspect
 public class Audience {
-
     @Pointcut("execution(** com.sjb.chapter4.aop.around.Performance.perform(..))") // 명명된 포인트커트 정의
     public void performance() { // 실제로는 비어 있다.
     }

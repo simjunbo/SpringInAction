@@ -7,8 +7,15 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-    <context:component-scan base-package="com.sjb.chapter16"/>
+    <context:component-scan base-package="com.sjb.core"/>
 
+    <!-- core test -->
+    <bean id="beanName" class="com.sjb.core.BeanName"/>
+    <bean id="loader" class="com.sjb.core.Loader"/>
+    <bean id="beanFactoryAware" class="com.sjb.core.BeanFactoryAwareExample"/>
+    <bean id="applicationContextAware" class="com.sjb.core.ApplicationContextAwareExample"/>
+    <bean id="sample" class="com.sjb.core.Sample" />
+    <bean id="beanPostProcessor" class="com.sjb.core.BeanPostProcessorExample"/>
     <!--
 
         &lt;!&ndash; JPA &ndash;&gt;
