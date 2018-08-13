@@ -1,4 +1,4 @@
-package com.sjb.core;
+package com.sjb.core.application;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -10,15 +10,21 @@ public class BeanPostProcessorExample implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        if("sample".equals(beanName)){
-            Sample sample = (Sample) bean;
-            sample.test2();
+        if("initializingBean".equals(beanName)){
+            System.out.println("BeanPostProcessor - postProcessBeforeInitialization");
+/*            Sample sample = (Sample) bean;
+            sample.test2();*/
         }
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if("initializingBean".equals(beanName)){
+            System.out.println("BeanPostProcessor - postProcessAfterInitialization");
+/*            Sample sample = (Sample) bean;
+            sample.test3();*/
+        }
         return bean;
     }
 }

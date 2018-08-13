@@ -1,4 +1,4 @@
-package com.sjb.core;
+package com.sjb.core.application;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -10,8 +10,9 @@ import org.springframework.context.ApplicationContextAware;
 public class ApplicationContextAwareExample implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
-        Sample sample = (Sample) context.getBean("sample");
-        sample.test();
+        System.out.println("ApplicationContextAware");
+        //Sample sample = (Sample) context.getBean("sample");
+        //sample.test();
     }
 }
 

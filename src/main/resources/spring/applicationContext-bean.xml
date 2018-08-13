@@ -10,13 +10,46 @@
 
     <context:component-scan base-package="com.sjb.core"/>
 
-    <!-- core test -->
-    <bean id="beanName" class="com.sjb.core.BeanName"/>
-    <bean id="loader" class="com.sjb.core.Loader"/>
-    <bean id="beanFactoryAware" class="com.sjb.core.BeanFactoryAwareExample"/>
-    <bean id="applicationContextAware" class="com.sjb.core.ApplicationContextAwareExample"/>
-    <bean id="sample" class="com.sjb.core.Sample" />
-    <bean id="beanPostProcessor" class="com.sjb.core.BeanPostProcessorExample"/>
+    <!-- Core Test -->
+    <bean id="Lifecycle" class="com.sjb.core.one.Lifecycle" init-method="initMethod" destroy-method="destroyMethod">
+        <constructor-arg value="simjunbo"/>
+        <property name="name">
+            <value>aiden</value>
+        </property>
+    </bean>
+    <bean class="com.sjb.core.one.BeanPostProcessorSample"/>
+    <!--
+        <bean id="constructor" class="com.sjb.core.application.ConstructorExample">
+            <constructor-arg value="simjunbo"/>
+            <property name="name">
+                <value>aiden</value>
+            </property>
+        </bean>
+
+        <bean id="beanNameAware" class="com.sjb.core.application.BeanNameAwareExample"/>
+        <bean id="beanClassLoaderAware" class="com.sjb.core.application.BeanClassLoaderAwareExample"/>
+        <bean id="beanFactoryAware" class="com.sjb.core.application.BeanFactoryAwareExample"/>
+        &lt;!&ndash; ApplicationContext Only&ndash;&gt;
+        <bean id="resourceLoaderAware" class="com.sjb.core.application.ResourceLoaderAwareExample"/>
+        <bean id="applicationEventPublisherAware" class="com.sjb.core.application.ApplicationEventPublisherAwareExample"/>
+        <bean id="messageSourceAware" class="com.sjb.core.application.MessageSourceAwareExample"/>
+        <bean id="applicationContextAware" class="com.sjb.core.application.ApplicationContextAwareExample"/>
+        <bean id="servletContextAware" class="com.sjb.core.application.ServletContextAwareExample"/>
+
+        <bean id="sample" class="com.sjb.core.application.Sample"/>
+
+        <bean id="beanPostProcessor" class="com.sjb.core.application.BeanPostProcessorExample"/>
+        <bean id="postConstruct" class="com.sjb.core.application.PostConstructExample">
+            <property name="message" value="i'm Groot"/>
+        </bean>
+        <bean id="initializingBean" class="com.sjb.core.application.InitializingBeanExample"/>
+        <bean id="initMethod" class="com.sjb.core.application.InitMethodExample" init-method="init"/>
+
+        <bean id="preDestroy" class="com.sjb.core.application.PreDestroyExample"/>
+        <bean id="disposableBean" class="com.sjb.core.application.DisposableBeanExample"/>
+        <bean id="destroyMethod" class="com.sjb.core.application.DestroyMethodExample" destroy-method="destroy"/>
+    -->
+
 
     <!--
         <jee:jndi-lookup id="mailSession" jndi-name="mail/Session" resource-ref="true" />

@@ -1,4 +1,4 @@
-package com.sjb.core;
+package com.sjb.core.application;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -10,6 +10,6 @@ import org.springframework.beans.factory.BeanFactoryAware;
 public class BeanFactoryAwareExample implements BeanFactoryAware {
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("BeanFactoryAware :" + beanFactory);
+        System.out.println("BeanFactoryAware");
     }
 }
