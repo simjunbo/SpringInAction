@@ -20,3 +20,4 @@ public class KnightConfig {
         return new SlayDragonQuest(System.out);
     }
 }
+

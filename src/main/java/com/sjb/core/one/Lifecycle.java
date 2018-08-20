@@ -3,6 +3,7 @@ package com.sjb.core.one;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 import org.springframework.context.*;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.web.context.ServletContextAware;
 
@@ -13,16 +14,16 @@ import javax.servlet.ServletContext;
 /**
  * Created by simjunbo on 2018-08-13.
  */
-public class Lifecycle implements ApplicationContextAware, ApplicationEventPublisherAware, MessageSourceAware, ResourceLoaderAware
+public class Lifecycle implements ApplicationContextAware, ApplicationEventPublisherAware, MessageSourceAware, ResourceLoaderAware, EnvironmentAware
         , ServletContextAware, BeanClassLoaderAware, BeanFactoryAware, BeanNameAware, DisposableBean,
         InitializingBean {
 
     public Lifecycle(String name) {
-        System.out.println("Lifecycle : " + name);
+        System.out.println("Lifecycle constructor : " + name);
     }
 
     public void setName(String name) {
-        System.out.println("Lifecycle - setter : " + name);
+        System.out.println("Lifecycle setter : " + name);
     }
 
     @Override
@@ -33,6 +34,11 @@ public class Lifecycle implements ApplicationContextAware, ApplicationEventPubli
     @Override
     public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
         System.out.println("ApplicationEventPublisherAware");
+    }
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        System.out.println("EnvironmentAware");
     }
 
     @Override

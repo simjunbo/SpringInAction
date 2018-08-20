@@ -9,13 +9,13 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class BeanPostProcessorSample implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
-        System.out.println("BeanPostProcessor - postProcessBeforeInitialization");
+        System.out.println("BeanPostProcessor - postProcessBeforeInitialization : " + o + " s : " + s);
         return o;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
-        System.out.println("BeanPostProcessor - postProcessAfterInitialization");
+        System.out.println("BeanPostProcessor - postProcessAfterInitialization : " + o + " s : " + s);
         return o;
     }
 }
