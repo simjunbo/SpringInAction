@@ -9,5 +9,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ApplicationContextMain {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BeanConfig.class);
+        Entitlement entitlement = applicationContext.getBean(Entitlement.class);
     }
 }

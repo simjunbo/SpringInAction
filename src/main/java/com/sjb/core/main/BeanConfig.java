@@ -3,12 +3,14 @@ package com.sjb.core.main;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.inject.Named;
+
 /**
  * Created by simjunbo on 2018-08-21.
  */
 @Configuration
 public class BeanConfig {
-    @Bean(name = "entitlement")
+    @Bean
     public Entitlement entitlement() {
         Entitlement ent = new Entitlement();
         ent.setName("Entitlement");
