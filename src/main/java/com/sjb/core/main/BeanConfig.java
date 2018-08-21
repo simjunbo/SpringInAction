@@ -39,3 +39,4 @@ class Entitlement {
         this.time = time;
     }
 }
+
