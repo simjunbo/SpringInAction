@@ -1,7 +1,9 @@
 package com.sjb.core.main;
 
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import javax.inject.Named;
 
@@ -10,33 +12,13 @@ import javax.inject.Named;
  */
 @Configuration
 public class BeanConfig {
+    @Scope(BeanDefinition.SCOPE_PROTOTYPE)
     @Bean
     public Entitlement entitlement() {
         Entitlement ent = new Entitlement();
         ent.setName("Entitlement");
         ent.setTime(20);
         return ent;
-    }
-}
-
-class Entitlement {
-    private String name;
-    private int time;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
     }
 }
 
