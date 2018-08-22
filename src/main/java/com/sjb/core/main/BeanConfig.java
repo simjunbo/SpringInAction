@@ -12,7 +12,7 @@ import javax.inject.Named;
  */
 @Configuration
 public class BeanConfig {
-    @Scope(BeanDefinition.SCOPE_PROTOTYPE)
+    //@Scope(BeanDefinition.SCOPE_PROTOTYPE)
     @Bean
     public Entitlement entitlement() {
         Entitlement ent = new Entitlement();
